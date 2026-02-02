@@ -39,10 +39,10 @@ export default function Home() {
         className="h-screen bg-cover bg-center relative overflow-hidden"
         style={{ backgroundImage: "url('/background.png')" }}
       >
-        {/* Wedding Names (smaller + moved up) */}
+        {/* Wedding Names (mobile par full zoom ~130px) */}
         <div className="absolute top-2 sm:top-6 md:top-10 left-1/2 transform -translate-x-1/2 z-30">
           <img src="/text.png" alt="Wedding Names"
-            className="w-[70vw] sm:w-[55vw] md:w-[45vw] lg:w-[450px] xl:w-[550px]" />
+            className="w-[100vw] sm:w-[80vw] md:w-[65vw] lg:w-[500px] xl:w-[600px]" />
         </div>
 
         {/* Dhol Players */}
