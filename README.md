@@ -1,14 +1,5 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Invitation
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This is a Next.js project for a cinematic wedding invite homepage.  
+It includes animated car, dhol players, background, and responsive design.  
+Deployed on Vercel for mobile and desktop.
