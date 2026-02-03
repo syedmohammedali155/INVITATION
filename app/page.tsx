@@ -12,9 +12,8 @@ export default function Home() {
     offset: ['start start', 'end start']
   })
 
-  // Car animation
-  const carY = useTransform(scrollYProgress, [0, 1], [0, -160])
-  const carScale = useTransform(scrollYProgress, [0, 1], [1, 0.82])
+  const carY = useTransform(scrollYProgress, [0, 1], [0, -120])
+  const carScale = useTransform(scrollYProgress, [0, 1], [1, 0.88])
 
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -22,7 +21,9 @@ export default function Home() {
   const togglePlay = async () => {
     const audio = audioRef.current
     if (!audio) return
-    audio.paused ? (await audio.play(), setIsPlaying(true)) : (audio.pause(), setIsPlaying(false))
+    audio.paused
+      ? (await audio.play(), setIsPlaying(true))
+      : (audio.pause(), setIsPlaying(false))
   }
 
   return (
@@ -33,33 +34,39 @@ export default function Home() {
 
       <main className="w-full overflow-x-hidden bg-black">
 
-        {/* SECTION 1 */}
+        {/* ================= HERO SECTION ================= */}
         <section
           ref={heroRef}
-          className="relative w-full min-h-screen overflow-hidden bg-cover bg-center"
+          className="relative w-full h-[85vh] md:min-h-screen overflow-hidden bg-cover bg-center"
           style={{ backgroundImage: "url('/background.png')" }}
         >
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-30 w-full flex justify-center px-4">
-            <img src="/text.png" className="w-full max-w-[520px] h-auto object-contain" />
+          {/* BISMILLAH */}
+          <div className="absolute top-2 md:top-4 left-1/2 -translate-x-1/2 z-30 w-full flex justify-center px-4">
+            <img
+              src="/text.png"
+              className="w-full max-w-[520px] h-auto object-contain"
+            />
           </div>
 
+          {/* LEFT DHOL */}
           <motion.img
             src="/dhol-left.png"
-            className="absolute bottom-0 left-0 w-[40vw] max-w-[300px] h-auto object-contain"
+            className="absolute bottom-0 left-0 w-[38vw] max-w-[280px] h-auto object-contain"
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 1 }}
           />
 
+          {/* RIGHT DHOL */}
           <motion.img
             src="/dhol-right.png"
-            className="absolute bottom-0 right-0 w-[40vw] max-w-[300px] h-auto object-contain"
+            className="absolute bottom-0 right-0 w-[38vw] max-w-[280px] h-auto object-contain"
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 1 }}
           />
 
-          {/* Car bigger on mobile */}
+          {/* CAR */}
           <motion.div
-            className="absolute bottom-[6vh] left-1/2 -translate-x-1/2 z-20 px-4 w-full flex justify-center"
+            className="absolute bottom-[5vh] left-1/2 -translate-x-1/2 z-20 px-4 w-full flex justify-center"
             style={{ y: carY, scale: carScale }}
           >
             <img
@@ -69,38 +76,41 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* SECTION 2 - Card */}
-        <section className="relative w-full min-h-screen flex justify-center items-center overflow-hidden px-4">
-          <img src="/canvas.png" className="absolute inset-0 w-full h-full object-cover" />
+        {/* ================= CARD 1 ================= */}
+        <section className="relative w-full py-10 flex justify-center overflow-hidden px-4">
+          <img
+            src="/canvas.png"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
 
           <motion.img
             src="/card.png"
             alt="Wedding Card"
-            className="relative w-full max-w-[95vw] md:max-w-[1080px] h-auto 
-                       object-cover md:object-contain 
-                       scale-110 md:scale-100 rounded-lg shadow-lg"
+            className="relative mx-auto max-w-full h-auto object-contain rounded-lg shadow-lg scale-105 md:scale-100"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           />
         </section>
 
-        {/* SECTION 3 - Card1 */}
-        <section className="relative w-full min-h-screen flex justify-center items-center overflow-hidden px-4">
-          <img src="/canvas.png" className="absolute inset-0 w-full h-full object-cover" />
+        {/* ================= CARD 2 (DATE / CALENDAR) ================= */}
+        <section className="relative w-full py-10 flex justify-center overflow-hidden px-4">
+          <img
+            src="/canvas.png"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
 
           <motion.img
             src="/card1.png"
             alt="Wedding Card 1"
-            className="relative w-full max-w-[95vw] md:max-w-[1080px] h-auto 
-                       object-cover md:object-contain 
-                       scale-110 md:scale-100 rounded-lg shadow-lg"
+            className="relative mx-auto max-w-full h-auto object-contain rounded-lg shadow-lg scale-105 md:scale-100"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           />
         </section>
 
+        {/* ================= AUDIO ================= */}
         <audio ref={audioRef} src="/song.mp3" loop />
 
         <button
