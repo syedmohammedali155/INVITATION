@@ -12,6 +12,7 @@ export default function Home() {
     offset: ['start start', 'end start']
   })
 
+  // Car animation
   const carY = useTransform(scrollYProgress, [0, 1], [0, -160])
   const carScale = useTransform(scrollYProgress, [0, 1], [1, 0.82])
 
@@ -56,34 +57,44 @@ export default function Home() {
             transition={{ repeat: Infinity, duration: 1 }}
           />
 
+          {/* Car bigger on mobile */}
           <motion.div
             className="absolute bottom-[6vh] left-1/2 -translate-x-1/2 z-20 px-4 w-full flex justify-center"
             style={{ y: carY, scale: carScale }}
           >
-            <img src="/car.png" className="w-full max-w-[1200px] h-auto object-contain" />
+            <img
+              src="/car.png"
+              className="w-full max-w-[95vw] md:max-w-[1200px] h-auto object-contain"
+            />
           </motion.div>
         </section>
 
-        {/* SECTION 2 */}
+        {/* SECTION 2 - Card */}
         <section className="relative w-full min-h-screen flex justify-center items-center overflow-hidden px-4">
           <img src="/canvas.png" className="absolute inset-0 w-full h-full object-cover" />
 
           <motion.img
             src="/card.png"
-            className="relative w-full max-w-[95vw] sm:max-w-[85vw] md:max-w-[70vw] lg:max-w-[1400px] xl:max-w-[1600px] h-auto object-contain"
+            alt="Wedding Card"
+            className="relative w-full max-w-[95vw] md:max-w-[1080px] h-auto 
+                       object-cover md:object-contain 
+                       scale-110 md:scale-100 rounded-lg shadow-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           />
         </section>
 
-        {/* SECTION 3 */}
+        {/* SECTION 3 - Card1 */}
         <section className="relative w-full min-h-screen flex justify-center items-center overflow-hidden px-4">
           <img src="/canvas.png" className="absolute inset-0 w-full h-full object-cover" />
 
           <motion.img
             src="/card1.png"
-            className="relative w-full max-w-[95vw] sm:max-w-[85vw] md:max-w-[70vw] lg:max-w-[1400px] xl:max-w-[1600px] h-auto object-contain"
+            alt="Wedding Card 1"
+            className="relative w-full max-w-[95vw] md:max-w-[1080px] h-auto 
+                       object-cover md:object-contain 
+                       scale-110 md:scale-100 rounded-lg shadow-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
